@@ -1,0 +1,9 @@
+# Безопасность
+.env
+
+# Зависимости
+node_modules
+package-lock.json
+
+# Мусор
+.DS_Store

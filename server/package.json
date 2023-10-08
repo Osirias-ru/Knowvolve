@@ -1,0 +1,34 @@
+{
+  "name": "knowvolve-server",
+  "version": "0.0.1",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "author": "osi",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.2",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "fs": "^0.0.1-security",
+    "handlebars": "^4.7.8",
+    "jsonwebtoken": "^9.0.2",
+    "module-alias": "^2.2.3",
+    "mongoose": "^7.5.3",
+    "nodemailer": "^6.9.5",
+    "uuid": "^9.0.1"
+  },
+  "_moduleAliases": {
+    "@root": ".",
+    "@utils": "utils/",
+    "@database": "database/",
+    "@routes": "routes/"
+  }
+}
