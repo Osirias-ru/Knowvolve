@@ -3,7 +3,6 @@ const config = require('../config/config');
 const logger = require('../config/logger');
 
 const transport = nodemailer.createTransport(config.email.smtp);
-/* istanbul ignore next */
 if (config.env !== 'test') {
   transport
     .verify()
@@ -12,7 +11,7 @@ if (config.env !== 'test') {
 }
 
 /**
- * Send an email
+ * Отправить e-mail
  * @param {string} to
  * @param {string} subject
  * @param {string} text
@@ -24,29 +23,27 @@ const sendEmail = async (to, subject, text) => {
 };
 
 /**
- * Send reset password email
+ * Сброс пароля
  * @param {string} to
  * @param {string} token
  * @returns {Promise}
  */
 const sendResetPasswordEmail = async (to, token) => {
   const subject = 'Reset password';
-  // replace this url with the link to the reset password page of your front-end app
-  const resetPasswordUrl = `http://link-to-app/reset-password?token=${token}`;
+  const resetPasswordUrl = `http://localhost:3001/reset-password?token=${token}`;
   const text = `${resetPasswordUrl}.`;
   await sendEmail(to, subject, text);
 };
 
 /**
- * Send verification email
+ * Верефикация потчы
  * @param {string} to
  * @param {string} token
  * @returns {Promise}
  */
 const sendVerificationEmail = async (to, token) => {
   const subject = 'Email Verification';
-  // replace this url with the link to the email verification page of your front-end app
-  const verificationEmailUrl = `http://link-to-app/verify-email?token=${token}`;
+  const verificationEmailUrl = `http://localhost:3001/verify-email?token=${token}`;
   const text = `${verificationEmailUrl}`;
   await sendEmail(to, subject, text);
 };

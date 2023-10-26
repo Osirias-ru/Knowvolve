@@ -3,7 +3,7 @@ const { User } = require('../models');
 const ApiError = require('../utils/ApiError');
 
 /**
- * Create a user
+ * Создание пользователя
  * @param {Object} userBody
  * @returns {Promise<User>}
  */
@@ -15,12 +15,12 @@ const createUser = async (userBody) => {
 };
 
 /**
- * Query for users
- * @param {Object} filter - Mongo filter
- * @param {Object} options - Query options
- * @param {string} [options.sortBy] - Sort option in the format: sortField:(desc|asc)
- * @param {number} [options.limit] - Maximum number of results per page (default = 10)
- * @param {number} [options.page] - Current page (default = 1)
+ * Список пользователей
+ * @param {Object} filter
+ * @param {Object} options
+ * @param {string} [options.sortBy]
+ * @param {number} [options.limit]
+ * @param {number} [options.page]
  * @returns {Promise<QueryResult>}
  */
 const queryUsers = async (filter, options) => {
@@ -29,7 +29,7 @@ const queryUsers = async (filter, options) => {
 };
 
 /**
- * Get user by id
+ * Получить пользователя по id
  * @param {ObjectId} id
  * @returns {Promise<User>}
  */
@@ -38,7 +38,7 @@ const getUserById = async (id) => {
 };
 
 /**
- * Get user by email
+ * Получить пользователя по email
  * @param {string} email
  * @returns {Promise<User>}
  */
@@ -47,7 +47,7 @@ const getUserByEmail = async (email) => {
 };
 
 /**
- * Update user by id
+ * Изменить пользователя по id
  * @param {ObjectId} userId
  * @param {Object} updateBody
  * @returns {Promise<User>}
@@ -66,7 +66,7 @@ const updateUserById = async (userId, updateBody) => {
 };
 
 /**
- * Delete user by id
+ * Удалить пользователя по id
  * @param {ObjectId} userId
  * @returns {Promise<User>}
  */

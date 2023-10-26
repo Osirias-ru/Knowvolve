@@ -1,10 +1,10 @@
-# Dependencies
+# Мусор
 node_modules
 
-# yarn error logs
+# Логи
 yarn-error.log
 
-# Environment varibales
+# Безопасность
 .env*
 !.env*.example
 

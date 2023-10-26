@@ -6,7 +6,7 @@ const ApiError = require('../utils/ApiError');
 const { tokenTypes } = require('../config/tokens');
 
 /**
- * Login with username and password
+ * Вход пользователя
  * @param {string} email
  * @param {string} password
  * @returns {Promise<User>}
@@ -20,7 +20,7 @@ const loginUserWithEmailAndPassword = async (email, password) => {
 };
 
 /**
- * Logout
+ * Выход
  * @param {string} refreshToken
  * @returns {Promise}
  */
@@ -33,7 +33,7 @@ const logout = async (refreshToken) => {
 };
 
 /**
- * Refresh auth tokens
+ * Обновить токены
  * @param {string} refreshToken
  * @returns {Promise<Object>}
  */
@@ -52,7 +52,7 @@ const refreshAuth = async (refreshToken) => {
 };
 
 /**
- * Reset password
+ * Сброс пароля
  * @param {string} resetPasswordToken
  * @param {string} newPassword
  * @returns {Promise}
@@ -72,7 +72,7 @@ const resetPassword = async (resetPasswordToken, newPassword) => {
 };
 
 /**
- * Verify email
+ * Подтверждение почты
  * @param {string} verifyEmailToken
  * @returns {Promise}
  */

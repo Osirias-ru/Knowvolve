@@ -8,7 +8,7 @@ const ApiError = require('../utils/ApiError');
 const { tokenTypes } = require('../config/tokens');
 
 /**
- * Generate token
+ * Создание токена
  * @param {ObjectId} userId
  * @param {Moment} expires
  * @param {string} type
@@ -26,7 +26,7 @@ const generateToken = (userId, expires, type, secret = config.jwt.secret) => {
 };
 
 /**
- * Save a token
+ * Сохранение токена
  * @param {string} token
  * @param {ObjectId} userId
  * @param {Moment} expires
@@ -46,7 +46,7 @@ const saveToken = async (token, userId, expires, type, blacklisted = false) => {
 };
 
 /**
- * Verify token and return token doc (or throw an error if it is not valid)
+ * Проверка токена
  * @param {string} token
  * @param {string} type
  * @returns {Promise<Token>}
@@ -61,7 +61,7 @@ const verifyToken = async (token, type) => {
 };
 
 /**
- * Generate auth tokens
+ * Генерация токена аутентификации
  * @param {User} user
  * @returns {Promise<Object>}
  */
@@ -86,7 +86,7 @@ const generateAuthTokens = async (user) => {
 };
 
 /**
- * Generate reset password token
+ * Генерация токена сброса пароля
  * @param {string} email
  * @returns {Promise<string>}
  */
@@ -102,7 +102,7 @@ const generateResetPasswordToken = async (email) => {
 };
 
 /**
- * Generate verify email token
+ * Генерация токена сброса пароля
  * @param {User} user
  * @returns {Promise<string>}
  */
