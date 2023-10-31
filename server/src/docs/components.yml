@@ -19,6 +19,42 @@ components:
         name: fake name
         role: user
 
+    Course:
+      type: object
+      properties:
+        id:
+          type: string
+        course:
+          type: object
+          properties:
+            title:
+              type: string
+            description:
+              type: string
+            subjects:
+              type: array,
+              item: string,
+              enum: [informatics, programming]
+            visibility:
+              type: string,
+              enum: [public, private]
+            price:
+              type: Number
+        lessons:
+          type: array
+          item: string
+            
+      example:
+        id: 5ebac534954b54139806c112
+        course: {
+          title: "Информатика. ОГЭ - это легко",
+          description: "Курс создан для тех, кто сдаёт ОГЭ по информатике и хочет подготовится <...>",
+          subjects: ["informatics", "programing"],
+          visibility: "public",
+          price: 1000
+        }
+        lessons: []
+
     Token:
       type: object
       properties:
@@ -55,7 +91,7 @@ components:
           schema:
             $ref: '#/components/schemas/Error'
           example:
-            code: 400
+            code: 409
             message: Email already taken
     Unauthorized:
       description: Unauthorized
