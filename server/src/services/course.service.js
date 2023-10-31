@@ -43,7 +43,7 @@ const queryCourses = async (filter, options) => {
 /**
  * Получить пользователя по id
  * @param {ObjectId} id
- * @returns {Promise<User>}
+ * @returns {Promise<import("../models/course.model").Course>}
  */
 const getCourseById = async (id) => {
   const course = Course.findById(id);
@@ -54,32 +54,17 @@ const getCourseById = async (id) => {
 };
 
 /**
- * Получить пользователя по email
- * @param {string} email
- * @returns {Promise<User>}
- */
-const getUserByEmail = async (email) => {
-  return User.findOne({ email });
-};
-
-/**
- * Изменить пользователя по id
+ * Изменить курс по id
  * @param {ObjectId} userId
  * @param {Object} updateBody
- * @returns {Promise<User>}
+ * @returns {Promise<import("../models/course.model").Course>}
  */
-const updateCourseById = async (userId, updateBody) => {
-  const user = await getCourseById(userId);
-  if (!user) {
-    throw new ApiError(httpStatus.NOT_FOUND, "User not found");
-  }
-  if (updateBody.email && (await User.isEmailTaken(updateBody.email, userId))) {
-    throw new ApiError(httpStatus.BAD_REQUEST, "Email already taken");
-  }
-  Object.assign(user, updateBody);
-  await user.save();
-  return user;
-};
+const updateCourseById = async (courseId, updateBody) => {
+    const course = await getCourseById(courseId);
+    Object.assign(course, updateBody);
+    await course.save();
+    return course;
+  };
 
 /**
  * Удалить курс по id
@@ -88,9 +73,6 @@ const updateCourseById = async (userId, updateBody) => {
  */
 const deleteCourseById = async (courseId) => {
   const course = await getCourseById(courseId);
-  if (!course) {
-    throw new ApiError(httpStatus.NOT_FOUND, "Course not found");
-  }
   await course.remove();
   return course;
 };

@@ -14,8 +14,8 @@ router
 router
   .route('/:courseId')
   .get(validate(courseValidation.getCourse), courseController.getCourse)
-  //.patch(auth('manageCourse'), validate(courseValidation.updateCourse), courseController.updateCourse)
-  //.delete(auth('manageCourse'), validate(courseValidation.deleteCourse), courseController.deleteCourse);
+  .patch(auth('manageCourse'), validate(courseValidation.updateCourse), courseController.updateCourse)
+  .delete(auth('manageCourse'), validate(courseValidation.deleteCourse), courseController.deleteCourse);
 
 module.exports = router;
 

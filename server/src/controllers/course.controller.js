@@ -21,8 +21,20 @@ const getCourse = catchAsync(async (req, res) => {
   res.send(course);
 });
 
+const updateCourse = catchAsync(async (req, res) => {
+    const course = await courseService.updateCourseById(req.params.courseId, req.body);
+    res.send(course);
+});
+
+const deleteCourse = catchAsync(async (req, res) => {
+  await courseService.deleteCourseById(req.params.courseId);
+  res.status(httpStatus.NO_CONTENT).send();
+});
+
 module.exports = {
   createCourse,
   getCourses,
-  getCourse
+  getCourse,
+  updateCourse,
+  deleteCourse
 };
