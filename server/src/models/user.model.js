@@ -44,6 +44,53 @@ const userSchema = mongoose.Schema(
       type: Boolean,
       default: false,
     },
+    courses: {
+      type: Object,
+      properties: {
+        administration: {
+          type: Array,
+          items: {
+            type: mongoose.SchemaTypes.ObjectId,
+            ref: 'Course',
+          }
+        },
+        complited: {
+          type: Array,
+          items: {
+            type: mongoose.SchemaTypes.ObjectId,
+            ref: 'Course',
+          }
+        },
+        taking: {
+          type: Array,
+          items: {
+            type: mongoose.SchemaTypes.ObjectId,
+            ref: 'Course',
+          }
+        },
+        plans: {
+          type: Array,
+          items: {
+            type: mongoose.SchemaTypes.ObjectId,
+            ref: 'Course',
+          }
+        },
+        abandoned: {
+          type: Array,
+          items: {
+            type: mongoose.SchemaTypes.ObjectId,
+            ref: 'Course',
+          }
+        },
+        favourites: {
+          type: Array,
+          items: {
+            type: mongoose.SchemaTypes.ObjectId,
+            ref: 'Course',
+          }
+        }
+      }
+    }
   },
   {
     timestamps: true,

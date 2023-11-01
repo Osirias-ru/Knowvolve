@@ -12,7 +12,13 @@ const verifyCallback = (req, resolve, reject, requiredRights) => async (err, use
   if (requiredRights.length) {
     const userRights = roleRights.get(user.role);
     const hasRequiredRights = requiredRights.every((requiredRight) => userRights.includes(requiredRight));
-    if (!hasRequiredRights && req.params.userId !== user.id) {
+    if (!hasRequiredRights && req.params.userId !== user.id)  {
+      if(req.params.courseId) {
+        const isAdmin = user.courses.administration.some((course) => course.id === req.params.courseId);
+        if(isAdmin) {
+          return resolve();
+        }
+      }
       return reject(new ApiError(httpStatus.FORBIDDEN, 'Forbidden'));
     }
   }
